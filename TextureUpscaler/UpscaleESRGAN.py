@@ -18,7 +18,7 @@ def upscale_esrgan(workingImages, workingPath, model=ESRGANModelDefault):
         dst = path.join(ESRGANSrcPath, currImage.workingFilename)
         copyfile(src, dst)
 
-    ESRGANCommand = "python " + ESRGANScript + " " + ESRGANModel
+    ESRGANCommand = "python " + ESRGANScript + " " + model
     print(ESRGANCommand)
     os.system(ESRGANCommand)
 
