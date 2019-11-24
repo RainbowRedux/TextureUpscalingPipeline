@@ -1,0 +1,6 @@
+{
+    "SourcePath": "D:\\R6Data\\FullGames\\R6EWCD\\",
+    "WorkingPath": "D:\\R6Data\\workingdir\\",
+    "ExtensionsToFind": [".CACHE.PNG"],
+    "ESRGANModel": "interp_09.pth"
+}

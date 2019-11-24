@@ -8,11 +8,11 @@ from shutil import copyfile
 
 ESRGANPath = "TextureUpscaler/ESRGAN/"
 ESRGANScript = path.join(ESRGANPath, "test.py")
-ESRGANModel = "interp_09.pth"
+ESRGANModelDefault = "RRDB_ESRGAN_x4.pth"
 ESRGANSrcPath = path.join(ESRGANPath, "LR")
 ESRGANDstPath = path.join(ESRGANPath, "results")
 
-def upscale_esrgan(workingImages, workingPath):
+def upscale_esrgan(workingImages, workingPath, model=ESRGANModelDefault):
     for currImage in workingImages:
         src = currImage.lastPath
         dst = path.join(ESRGANSrcPath, currImage.workingFilename)
