@@ -26,13 +26,13 @@ Configure settings.json with the search path and extensions to search for.
 Run the program
 
 ```batch
-python TextureUpscaler.py
+python UpscaleTextures.py
 ```
 
 When the process has finished successfully all images will be saved alongside the originals with .HIRES.extension
 
 # Customisation
-The purpose of this program is to tie together many processing stages that can be performed before and after the upscaling step. The implementation of each stage is defined in a few modules, and the order of steps is defined in TextureUpscaler.py
+The purpose of this program is to tie together many processing stages that can be performed before and after the upscaling step. The implementation of each stage is defined in a few modules, and the order of steps is defined in UpscaleTextures.py
 
 ## Adding a new processing step
 TODO
