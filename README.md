@@ -18,8 +18,8 @@ Configure settings.json with the search path and extensions to search for.
 
 ```json
 {
-  searchPath: "D:/gamedata",
-  extensions: [".CACHE.PNG"]
+  "searchPath": "D:/gamedata",
+  "extensions": [".CACHE.PNG"]
 }
 ```
 
