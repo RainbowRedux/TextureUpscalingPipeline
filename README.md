@@ -12,7 +12,7 @@ A framework to perform multiple processing passes on textures in order to upscal
 
 
 # Usage
-All images need to be in a format that pillow can read.
+All images need to be in a format that pillow can read. Preferably this is PNG so it can be lossless.
 
 Configure settings.json with the search path and extensions to search for.
 
