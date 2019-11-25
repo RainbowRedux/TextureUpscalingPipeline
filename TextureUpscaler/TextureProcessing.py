@@ -86,28 +86,3 @@ def save_hires_image(inpath, outpath, workingImage):
     copyfile(src, dst)
 
     return True
-
-#Upscale Textures
-    #ESRGAN
-        #Choose Model (PSNR or RRGAN)
-        #Copy Preprocessed images to LR folder
-        #Run Process
-    #GigaPixel
-        #???
-    #Topaz
-        #???
-
-#PostProcess Textures
-    #Correct Alpha Channels
-        #Resize Textures with Pillow
-        #Copy Alpha Channel Across
-    
-    #Remove edge highlights (optional)
-
-    #Merge results (optional)
-        #Blend outputs of multiple upscaled textures
-    
-    #resize to reduce artifacts (optional)
-
-#Output Images
-    #Save all images next to original images with the extension of .HIRES.PNG
