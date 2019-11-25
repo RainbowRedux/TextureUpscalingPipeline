@@ -77,7 +77,6 @@ def invert_texture(inpath, outpath, workingImage):
 
 def save_hires_image(inpath, outpath, workingImage):
     """Takes a working image and saves it in the original place with .HIRES before the original extension"""
-    #TODO: resave the image if the original is not PNG format
     src = inpath
     ext = path.splitext(workingImage.originalPath)[1]
     dst = workingImage.originalPath[:-len(ext)] + ".HIRES" + ext
