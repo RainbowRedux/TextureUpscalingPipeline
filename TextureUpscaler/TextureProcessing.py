@@ -1,11 +1,9 @@
 """
 Utilities to run various processing and upscaling processes on images
 """
-
+import os
 from os import path
 from shutil import copyfile
-
-from FileUtilities.DirectoryUtils import gather_files_in_path
 
 class WorkingImageData:
     """Information associated with an image that is running through the processing pipeline"""
@@ -24,10 +22,17 @@ class WorkingImageData:
         self.workingPath = path.join(workingPath, self.workingFilename)
         self.lastPath = self.originalPath
 
-#Gather Textures
-    #Find all .PNG
-    #put into list of objects
-    #assign ID
+def gather_files_in_path(extension, folder):
+    """Walks a folder and it's sub directories and finds all files with matching extension, case-insensitive"""
+    filesToProcess = []
+    for root, dirs, files in os.walk(folder, topdown=True):
+        for name in files:
+            if name.upper().endswith(extension.upper()):
+                filesToProcess.append(path.join(root, name))
+        for name in dirs:
+            pass
+    return filesToProcess
+
 def gather_textures(source_path, workingPath, extensionsToFind):
     """
     Finds all textures and returns them in the workingImage data structure
