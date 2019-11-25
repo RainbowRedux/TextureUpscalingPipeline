@@ -4,6 +4,7 @@ import pprint
 from TextureUpscaler.TextureProcessing import gather_textures, run_processing_stage, save_hires_image
 from TextureUpscaler.UpscaleESRGAN import upscale_esrgan
 from TextureUpscaler.DenoiseImages import denoise_texture_opencv
+from TextureUpscaler.DownsampleImages import downsample_half
 from TextureUpscaler.AlphaChannelUpscale import alpha_channel_upscale
 
 def load_settings():
@@ -30,6 +31,7 @@ def run_texture_processing_pipeline():
     run_processing_stage(denoise_texture_opencv, images)
     upscale_esrgan(images, WorkingPath, ESRGANModel)
     run_processing_stage(alpha_channel_upscale, images)
+    run_processing_stage(downsample_half, images)
     run_processing_stage(save_hires_image, images)
 
 if __name__ == "__main__":
