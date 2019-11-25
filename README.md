@@ -84,7 +84,7 @@ def invert_texture(inpath, outpath, workingImage):
     inverted_image = None
     try:
         inverted_image = PIL.ImageOps.invert(image)
-    except:
+    except IOError:
         return False
     inverted_image.save(outpath)
     return True
