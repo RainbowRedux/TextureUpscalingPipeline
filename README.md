@@ -11,6 +11,7 @@ A framework to perform multiple processing passes on textures in order to upscal
 * OpenCV
 * ESRGAN (my branch with some changes to the commandline usage)
   * CUDA
+    * It will fall back to CPU where no CUDA devices are available, however it is almost impractically slow for a large amount of textures
   * Torch
   * TorchVision
 
@@ -18,6 +19,9 @@ A framework to perform multiple processing passes on textures in order to upscal
 
 1. Clone the repo
 2. Setup submodules
+```
+git clone --recurse-submodules https://github.com/boristsr/TextureUpscalingPipeline.git
+```
 3. Install the requirements from requirements.txt
 4. Install [CUDA](https://developer.nvidia.com/cuda-downloads)
 5. Install [PyTorch and torchvision from the website](https://pytorch.org/get-started/locally/#start-locally)
@@ -26,7 +30,6 @@ A framework to perform multiple processing passes on textures in order to upscal
 TextureUpscaler/ESRGAN/models
 ```
 7. Configure settings.json
-
 
 ## Usage
 
