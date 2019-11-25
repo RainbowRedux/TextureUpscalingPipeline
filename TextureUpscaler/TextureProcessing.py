@@ -75,21 +75,17 @@ def invert_texture(inpath, outpath, workingImage):
     inverted_image.save(outpath)
     return True
 
-def denoise_texture(inpath, outpath, workingImage):
-    """Runs a denoising process on the texture specified"""
-    import cv2 as cv
-    img = cv.imread(inpath)
-    dst = cv.fastNlMeansDenoisingColored(src=img,dst=None,h=5,hColor=5,templateWindowSize=1,searchWindowSize=5)
-    cv.imwrite(outpath,dst)
-
 def save_hires_image(inpath, outpath, workingImage):
     """Takes a working image and saves it in the original place with .HIRES before the original extension"""
+    #TODO: resave the image if the original is not PNG format
     src = inpath
     ext = path.splitext(workingImage.originalPath)[1]
     dst = workingImage.originalPath[:-len(ext)] + ".HIRES" + ext
     print("source: " + src)
     print("\tdest: " + dst)
     copyfile(src, dst)
+
+    return True
 
 #Upscale Textures
     #ESRGAN
