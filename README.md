@@ -65,9 +65,10 @@ run_processing_stage(invert_texture, images)
 ```
 
 Any function passed to run_processing_stage should take 3 parameters:
-inpath: the file to be processed
-outpath: where the file should be saved once finished
-workingImage: the WorkingImageData instance for this image which contains all information related to this image, including original path etc
+
+* inpath: the file to be processed
+* outpath: where the file should be saved once finished
+* workingImage: the WorkingImageData instance for this image which contains all information related to this image, including original path etc
 
 When a function completes successfully it should return True so that run_processing_stage updates the paths correctly in the pipeline.
 
