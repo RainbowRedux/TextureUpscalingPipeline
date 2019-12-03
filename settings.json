@@ -3,4 +3,6 @@
     "WorkingPath": "D:\\R6Data\\WorkingDir\\",
     "ExtensionsToFind": [".CACHE.PNG"],
     "ESRGANModel": "interp_09.pth"
+    "NGX_ISR_Exe": "C:\\ProgramData\\NVIDIA Corporation\\NVIDIA NGX SDK\\1.1\\Samples\\NGX Samples\\x64\\Release\\isr.exe",
+    "NGX_ISR_ScalingFactor": "8"
 }

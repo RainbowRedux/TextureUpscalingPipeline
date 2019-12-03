@@ -29,7 +29,8 @@ def run_texture_processing_pipeline():
     print("Number of images gathered: " + str(len(images)))
 
     run_processing_stage(denoise_texture_opencv, images, settings)
-    upscale_esrgan(images, WorkingPath, settings)
+    run_processing_stage(upscale_ngx, images, settings)
+    #upscale_esrgan(images, WorkingPath, settings)
     run_processing_stage(alpha_channel_upscale, images, settings)
     run_processing_stage(downsample_half, images, settings)
     run_processing_stage(save_hires_image, images, settings)
