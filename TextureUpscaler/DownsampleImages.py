@@ -1,11 +1,14 @@
 from PIL import Image
 from shutil import move
 
-def downsample_half(inpath, outpath, workingImage, settings):
+def downsample(inpath, outpath, workingImage, settings):
     """Downsamples the current texture by half"""
+
+    Downsample_Factor = settings["Downsample_Factor"]
+
     currentImage = Image.open(inpath)
 
-    newDimensions = [int(x / 2) for x in currentImage.size]
+    newDimensions = [int(x / Downsample_Factor) for x in currentImage.size]
     newDimensions = tuple(newDimensions)
 
     resizedImage = currentImage.resize(newDimensions, Image.BICUBIC)

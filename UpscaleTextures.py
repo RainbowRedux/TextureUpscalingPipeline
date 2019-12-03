@@ -4,7 +4,7 @@ import pprint
 from TextureUpscaler.TextureProcessing import gather_textures, run_processing_stage, save_hires_image
 from TextureUpscaler.UpscaleESRGAN import upscale_esrgan
 from TextureUpscaler.DenoiseImages import denoise_texture_opencv
-from TextureUpscaler.DownsampleImages import downsample_half
+from TextureUpscaler.DownsampleImages import downsample
 from TextureUpscaler.AlphaChannelUpscale import alpha_channel_upscale
 from TextureUpscaler.UpscaleNGX import upscale_ngx
 
@@ -29,10 +29,10 @@ def run_texture_processing_pipeline():
     print("Number of images gathered: " + str(len(images)))
 
     run_processing_stage(denoise_texture_opencv, images, settings)
-    run_processing_stage(upscale_ngx, images, settings)
-    #upscale_esrgan(images, WorkingPath, settings)
+    #run_processing_stage(upscale_ngx, images, settings)
+    upscale_esrgan(images, WorkingPath, settings)
     run_processing_stage(alpha_channel_upscale, images, settings)
-    run_processing_stage(downsample_half, images, settings)
+    run_processing_stage(downsample, images, settings)
     run_processing_stage(save_hires_image, images, settings)
 
 if __name__ == "__main__":
