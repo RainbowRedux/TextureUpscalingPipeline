@@ -2,7 +2,7 @@ from PIL import Image
 import PIL.ImageOps
 from shutil import move
 
-def alpha_channel_upscale(inpath, outpath, workingImage):
+def alpha_channel_upscale(inpath, outpath, workingImage, settings):
     """Opens the current working image as well as the original image, resizes (BICUBIC) the original image and copies the alpha channel"""
     originalImage = Image.open(workingImage.originalPath)
     if originalImage.mode != 'RGBA':

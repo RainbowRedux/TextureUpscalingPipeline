@@ -53,11 +53,11 @@ def gather_textures(source_path, workingPath, extensionsToFind):
 
     return workingImages
 
-def run_processing_stage(processingFunc, workingImages):
+def run_processing_stage(processingFunc, workingImages, settings=None):
     """Runs the function passed to processingFunc on each working image."""
     for workingImage in workingImages:
         print("Processing: " + str(workingImage.ID))
-        result = processingFunc(workingImage.lastPath, workingImage.workingPath, workingImage)
+        result = processingFunc(workingImage.lastPath, workingImage.workingPath, workingImage, settings)
         if result:
             workingImage.lastPath = workingImage.workingPath
 
@@ -75,7 +75,7 @@ def invert_texture(inpath, outpath, workingImage):
     inverted_image.save(outpath)
     return True
 
-def save_hires_image(inpath, outpath, workingImage):
+def save_hires_image(inpath, outpath, workingImage, settings):
     """Takes a working image and saves it in the original place with .HIRES before the original extension"""
     src = inpath
     ext = path.splitext(workingImage.originalPath)[1]

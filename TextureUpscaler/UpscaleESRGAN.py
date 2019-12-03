@@ -12,13 +12,15 @@ ESRGANModelDefault = "RRDB_ESRGAN_x4.pth"
 ESRGANSrcPath = path.join(ESRGANPath, "LR")
 ESRGANDstPath = path.join(ESRGANPath, "results")
 
-def upscale_esrgan(workingImages, workingPath, model=ESRGANModelDefault):
+def upscale_esrgan(workingImages, workingPath, settings):
     for currImage in workingImages:
         src = currImage.lastPath
         dst = path.join(ESRGANSrcPath, currImage.workingFilename)
         copyfile(src, dst)
 
-    ESRGANCommand = "python " + ESRGANScript + " " + model
+    ESRGANModel = settings["ESRGANModel"]
+
+    ESRGANCommand = "python " + ESRGANScript + " " + ESRGANModel
     print(ESRGANCommand)
     os.system(ESRGANCommand)
 

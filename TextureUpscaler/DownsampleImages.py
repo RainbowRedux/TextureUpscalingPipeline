@@ -1,7 +1,7 @@
 from PIL import Image
 from shutil import move
 
-def downsample_half(inpath, outpath, workingImage):
+def downsample_half(inpath, outpath, workingImage, settings):
     """Downsamples the current texture by half"""
     currentImage = Image.open(inpath)
 
