@@ -61,14 +61,15 @@ The purpose of this program is to tie together many processing stages that can b
 The simplest way to add a new step is to add a custom function which works on a single image and can be passed to 
 
 ```python
-run_processing_stage(invert_texture, images)
+run_processing_stage(invert_texture, images, settings)
 ```
 
-Any function passed to run_processing_stage should take 3 parameters:
+Any function passed to run_processing_stage should take 4 parameters:
 
 * inpath: the file to be processed
 * outpath: where the file should be saved once finished
 * workingImage: the WorkingImageData instance for this image which contains all information related to this image, including original path etc
+* settings: a dictionary of all settings from settings.json
 
 When a function completes successfully it should return True so that run_processing_stage updates the paths correctly in the pipeline.
 
@@ -78,7 +79,7 @@ invert_texture is a simple example used for testing the pipeline and makes a goo
 from PIL import Image
 import PIL.ImageOps
 
-def invert_texture(inpath, outpath, workingImage):
+def invert_texture(inpath, outpath, workingImage, settings):
     """Inverts the colors on the texture specified"""
     print("Inverting texture: " + inpath)
     image = Image.open(inpath)
