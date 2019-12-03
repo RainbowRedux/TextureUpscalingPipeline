@@ -61,7 +61,7 @@ def run_processing_stage(processingFunc, workingImages, settings=None):
         if result:
             workingImage.lastPath = workingImage.workingPath
 
-def invert_texture(inpath, outpath, workingImage):
+def invert_texture(inpath, outpath, workingImage, settings):
     """Inverts the colors on the texture specified"""
     print("Inverting texture: " + inpath)
     from PIL import Image
