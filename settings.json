@@ -1,8 +1,13 @@
 {
-    "SourcePath": "D:\\R6Data\\FullGames\\R6EWCD\\",
+    "SourcePath": "D:\\R6Data\\FullGames\\R6EWCD\\data\\map\\m01",
     "WorkingPath": "D:\\R6Data\\WorkingDir\\",
     "ExtensionsToFind": [".CACHE.PNG"],
-    "ESRGANModel": "interp_09.pth"
+    "ESRGANModel": "interp_08.pth",
     "NGX_ISR_Exe": "C:\\ProgramData\\NVIDIA Corporation\\NVIDIA NGX SDK\\1.1\\Samples\\NGX Samples\\x64\\Release\\isr.exe",
-    "NGX_ISR_ScalingFactor": "8"
+    "NGX_ISR_ScalingFactor": "8",
+    "CV_Denoise_templateWindowSize": 1,
+    "CV_Denoise_searchWindowSize": 5,
+    "CV_Denoise_h": 5,
+    "CV_Denoise_hColor": 5,
+    "Downsample_Factor": 2
 }
