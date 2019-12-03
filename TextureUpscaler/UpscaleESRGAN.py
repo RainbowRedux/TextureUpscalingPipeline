@@ -2,7 +2,7 @@
 Parameters and utility functions to run ESRGAN on images within WorkingImageData's
 """
 
-import os
+import subprocess
 from os import path
 from shutil import copyfile
 
@@ -20,9 +20,8 @@ def upscale_esrgan(workingImages, workingPath, settings):
 
     ESRGANModel = settings["ESRGANModel"]
 
-    ESRGANCommand = "python " + ESRGANScript + " " + ESRGANModel
-    print(ESRGANCommand)
-    os.system(ESRGANCommand)
+    ESRGANCommand = ["python", ESRGANScript, ESRGANModel]
+    proc = subprocess.call(ESRGANCommand)
 
     for currImage in workingImages:
         destFilename = str(currImage.ID) + "_rlt.png"
