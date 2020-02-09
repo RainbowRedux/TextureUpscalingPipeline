@@ -1,6 +1,6 @@
 # Texture Upscaling Pipeline
 
-[![CodeFactor](https://www.codefactor.io/repository/github/boristsr/textureupscalingpipeline/badge)](https://www.codefactor.io/repository/github/boristsr/textureupscalingpipeline)
+[![CodeFactor](https://www.codefactor.io/repository/github/rainbowredux/textureupscalingpipeline/badge)](https://www.codefactor.io/repository/github/rainbowredux/textureupscalingpipeline)
 
 A framework to perform multiple processing passes on textures in order to upscale them. This makes it easy to add new passes or iterate development on pre- and post-processing stages.
 
