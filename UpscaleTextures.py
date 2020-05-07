@@ -1,5 +1,6 @@
 import json
 import pprint
+import copy
 
 from TextureUpscaler.TextureProcessing import gather_textures, run_processing_stage, save_hires_image
 from TextureUpscaler.UpscaleESRGAN import upscale_esrgan
@@ -28,12 +29,22 @@ def run_texture_processing_pipeline():
     images = gather_textures(SourcePath, WorkingPath, ExtensionsToFind)
     print("Number of images gathered: " + str(len(images)))
 
-    run_processing_stage(denoise_texture_opencv, images, settings)
-    #run_processing_stage(upscale_ngx, images, settings)
-    upscale_esrgan(images, WorkingPath, settings)
-    run_processing_stage(alpha_channel_upscale, images, settings)
-    run_processing_stage(downsample, images, settings)
-    run_processing_stage(save_hires_image, images, settings)
+    images_src = copy.deepcopy(images)
+
+    run_processing_stage(denoise_texture_opencv, images, settings) #1
+    images_denoised = copy.deepcopy(images)
+    images_esrgan = copy.deepcopy(images)
+    images_ngx = copy.deepcopy(images)
+    run_processing_stage(upscale_ngx, images_ngx, settings) #2
+    run_processing_stage(upscale_ngx, images_src, settings) #3
+    upscale_esrgan(images_esrgan, WorkingPath, settings) #4
+    run_processing_stage(alpha_channel_upscale, images, settings) #5
+    run_processing_stage(downsample, images, settings) #6
+    run_processing_stage(save_hires_image, images, settings) #7
+
+    print(images_denoised[0].lastPath)
+    print(images_esrgan[0].lastPath)
+    print(images_ngx[0].lastPath)
 
 if __name__ == "__main__":
     run_texture_processing_pipeline()

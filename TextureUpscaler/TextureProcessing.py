@@ -5,6 +5,15 @@ import os
 from os import path
 from shutil import copyfile
 
+STEP_COUNT = 0
+
+def tick_step_count():
+    global STEP_COUNT
+    STEP_COUNT += 1
+
+def get_step_count():
+    return STEP_COUNT
+
 class WorkingImageData:
     """Information associated with an image that is running through the processing pipeline"""
     originalPath = ""
@@ -14,12 +23,18 @@ class WorkingImageData:
     filename = ""
     lastPath = ""
 
+    def prepare_next_step(self):
+        """This function prepares a new filename based on the number of steps"""
+        self.stepNumber = get_step_count()
+        self.workingFilename = str(self.ID) + "_" + str(self.stepNumber) + ".PNG"
+        self.workingPath = path.join(self.workingPathBase, self.workingFilename)
+
     def assign_file(self, filepath, ID, workingPath):
         self.originalPath = path.normpath(filepath)
         self.ID = ID
+        self.stepNumber = -1
+        self.workingPathBase = workingPath
         self.filename = path.basename(self.originalPath)
-        self.workingFilename = str(self.ID) + ".PNG"
-        self.workingPath = path.join(workingPath, self.workingFilename)
         self.lastPath = self.originalPath
 
 def gather_files_in_path(extension, folder):
@@ -55,8 +70,10 @@ def gather_textures(source_path, workingPath, extensionsToFind):
 
 def run_processing_stage(processingFunc, workingImages, settings=None):
     """Runs the function passed to processingFunc on each working image."""
+    tick_step_count()
     for workingImage in workingImages:
         print("Processing: " + str(workingImage.ID))
+        workingImage.prepare_next_step()
         result = processingFunc(workingImage.lastPath, workingImage.workingPath, workingImage, settings)
         if result:
             workingImage.lastPath = workingImage.workingPath
