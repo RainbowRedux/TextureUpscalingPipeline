@@ -1,6 +1,6 @@
 {
-    "SourcePath": "D:\\R6Data\\FullGames\\R6EWCD\\data\\map\\m01",
-    "WorkingPath": "D:\\R6Data\\WorkingDir\\",
+    "SourcePath": "C:\\R6Data\\FullGames\\R6EWCD\\data\\map\\m01",
+    "WorkingPath": "C:\\R6Data\\WorkingDir\\",
     "ExtensionsToFind": [".CACHE.PNG"],
     "ESRGANModel": "interp_08.pth",
     "NGX_ISR_Exe": "C:\\ProgramData\\NVIDIA Corporation\\NVIDIA NGX SDK\\1.1\\Samples\\NGX Samples\\x64\\Release\\isr.exe",
